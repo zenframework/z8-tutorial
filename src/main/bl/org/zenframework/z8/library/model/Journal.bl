@@ -1,0 +1,23 @@
+import org.zenframework.z8.base.table.Table;
+import org.zenframework.z8.base.table.value.DateField;
+import org.zenframework.z8.base.table.value.Link;
+
+[generatable]
+[name "Journal"]
+public class Journal extends Table {
+
+	public Book book;
+	[name "Book"] public Link bookId = book;
+
+	public Person person;
+	[name "Person"] public Link personId = person;
+
+	[name "Date"]
+	[displayName "Взял"]
+	public DateField date;
+
+	[name "Returned"]
+	[displayName "Вернул"]
+	public DateField returned;
+
+}

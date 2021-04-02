@@ -1,0 +1,42 @@
+import org.zenframework.z8.base.form.Listbox;
+import org.zenframework.z8.base.table.Table;
+import org.zenframework.z8.base.table.value.StringExpression;
+import org.zenframework.z8.base.table.value.StringField;
+
+[entry]
+[generatable]
+[name "Person"]
+[displayName "Посетители"]
+public class Person extends Table {
+
+	[displayName "Наименование"] name;
+
+	[name "Address"]
+	[displayName "Адрес"]
+	public StringField address;
+	address.length = 100;
+
+	[name "Phone"]
+	[displayName "Телефон"]
+	public StringField phone;
+	phone.length = 30;
+
+	public Journal journal;
+	journal.date.editable = true;
+	journal.returned.editable = true;
+
+	public StringExpression namePhone = name + " (" + phone + ")";
+
+	[displayName "История"]
+	public Listbox journalList;
+	journalList.query = journal;
+	journalList.link = journal.personId;
+	journalList.columns = { journal.book.name, journal.date, journal.returned };
+	journalList.colSpan = 4;
+	journalList.flex = 1;
+
+	names = { name };
+	controls = { name, address, phone, journalList };
+	columns = { name, address, phone };
+
+}
