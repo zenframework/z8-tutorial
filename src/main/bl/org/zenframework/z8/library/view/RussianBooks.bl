@@ -11,7 +11,9 @@ public class RussianBooks extends Books {
 		}
 	};
 
-	controls = { name, author.name, library.name, journalList };
+	colCount = 3;
+
+	controls = { name, author.name, library.name, description, journalList };
 
 	virtual protected sql_bool where() {
 		return typeId == BookType.Russian && authorId == Author.Tolstoy;

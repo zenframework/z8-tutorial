@@ -1,6 +1,5 @@
 import org.zenframework.z8.base.table.Table;
 import org.zenframework.z8.base.table.value.Link;
-import org.zenframework.z8.base.table.value.StringField;
 
 [generatable]
 [name "Book"]
@@ -14,9 +13,5 @@ public class Book extends Table {
 
 	public Library library;
 	[name "Library"] public Link libraryId = library;
-
-	[name "Annotation"]
-	public StringField annotation;
-	annotation.length = 1000;
 
 }

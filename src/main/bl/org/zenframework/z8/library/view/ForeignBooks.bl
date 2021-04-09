@@ -4,7 +4,15 @@ import org.zenframework.z8.library.model.BookType;
 [displayName "Зарубежная литература"]
 public class ForeignBooks extends Books {
 
-	controls = { name, author.name, library.name, journalList };
+	typeId = class {
+		virtual protected guid getDefault() {
+			return BookType.Foreign;
+		}
+	};
+
+	colCount = 3;
+
+	controls = { name, author.name, library.name, description, journalList };
 
 	virtual protected sql_bool where() {
 		return typeId == BookType.Foreign;

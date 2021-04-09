@@ -43,6 +43,7 @@
 	<entry key="exchange.job.cron"></entry>                          <!-- default="", <empty> to disable -->
 
 	<entry key="fts.configuration">russian</entry>
+	<entry key="generator.staticRecords.restore">true</entry>
 
 	<entry key="office.home">C:/Program Files (x86)/LibreOffice 4.0</entry>
 </properties>

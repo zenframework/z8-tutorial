@@ -1,17 +1,29 @@
-import org.zenframework.z8.base.form.Fieldset;
 import org.zenframework.z8.base.form.Listbox;
 import org.zenframework.z8.library.model.Book;
 import org.zenframework.z8.library.model.Journal;
 
-[entry]
+/*
+ * Простая форма для отображения карточки книги
+ */
+
+/*
+ * Атрибут [entry] убираем, т.к. форма добавлена в LibraryDesktop как подпункт меню.
+ */
+// [entry]
+
 [displayName "Книги"]
 public class Books extends Book {
 
 	[displayName "Наименование"] name;
-	[displayName "Описание"] annotation;
+	[displayName "Описание"] description;
 	[displayName "Библиотека"] library.name;
 
-	annotation.colSpan = 4;
+	/*
+	 * Поле description занимает 4 столбца формы (colSpan) и растягивается (flex)
+	 * вместе с journalList в соотношении 1 к 3
+	 */
+	description.colSpan = 4;
+	description.flex = 1;
 
 	public Journal journal;
 	journal.date.editable = true;
@@ -24,20 +36,21 @@ public class Books extends Book {
 	journalList.query = journal;
 	journalList.link = journal.bookId;
 	journalList.columns = { journal.person.namePhone, journal.date, journal.returned };
-	journalList.colSpan = 3;
+
+	/*
+	 * Список journalList занимает 4 столбца формы (colSpan) и растягивается (flex)
+	 * вместе с description в соотношении 3 к 1
+	 */
+	journalList.colSpan = 4;
 	journalList.flex = 3;
 
-	[displayName "Книга"]
-	public Fieldset bookFields;
-	bookFields.controls = { name, type.name, author.name, library.name, description };
-	bookFields.colCount = 1;
-	bookFields.flex = 1;
-	//bookFields.height = 2;
-
-	colCount = 1;
+	/*
+	 * Элементы формы (controls) организованы в 4 столбца
+	 */
+	colCount = 4;
 
 	names = { name };
-	controls = { bookFields, journalList };
+	controls = { name, type.name, author.name, library.name, description, journalList };
 	columns = { name, type.name, author.name, library.name };
 
 }
