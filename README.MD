@@ -1,7 +1,6 @@
-Z8 Tutorial - обучающий проект на базе фреймворка [Z8](https://github.com/zenframework/z8/), содержащий исходные коды к курсу вебинаров, опубликованных на канале [Z8 Zenframework](https://www.youtube.com/channel/UCEpz5os7yrpCQ6G0Gqek_QQ)
-Каждому вебинару соответствует отдельная ветка Git.
+Z8 Tutorial - обучающий проект на базе фреймворка [Z8](https://github.com/zenframework/z8/), содержащий исходные коды к курсу вебинаров, опубликованных на канале [Z8 Zenframework](https://www.youtube.com/channel/UCEpz5os7yrpCQ6G0Gqek_QQ). Каждому вебинару соответствует отдельная ветка Git.
 
-Описание фреймворка Z8, а также проекта Z8 Template приведено в [Wiki проекта Z8](https://github.com/zenframework/z8/wiki)
+Описание фреймворка Z8, а также импорт проекта Z8 Tutorial приведено в [Wiki проекта Z8](https://github.com/zenframework/z8/wiki).
 
 # Как собрать проект Z8 Tutorial
 
