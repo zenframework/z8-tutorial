@@ -1,9 +1,8 @@
-import org.zenframework.z8.library.model.Book;
 import org.zenframework.z8.library.model.BookType;
 
 [entry]
 [displayName "Зарубежная литература"]
-public class ForeignBooks extends Book {
+public class ForeignBooks extends Books {
 
 	controls = { name, author.name, library.name, journalList };
 

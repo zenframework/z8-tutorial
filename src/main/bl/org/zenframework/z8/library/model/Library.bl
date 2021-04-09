@@ -1,10 +1,8 @@
 import org.zenframework.z8.base.table.Table;
 import org.zenframework.z8.base.table.value.StringField;
 
-[entry]
 [generatable]
 [name "Library"]
-[displayName "Библиотека"]
 public class Library extends Table {
 
 	[displayName "Наименование"] name;
@@ -18,9 +16,5 @@ public class Library extends Table {
 	[displayName "Телефон"]
 	public StringField phone;
 	phone.length = 30;
-
-	names = { name };
-	controls = { name, address, phone };
-	columns = { name, address, phone };
 
 }

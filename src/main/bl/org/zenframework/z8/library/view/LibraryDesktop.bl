@@ -1,0 +1,13 @@
+import org.zenframework.z8.base.form.Desktop;
+
+[entry]
+[displayName "Библиотека"]
+public class LibraryDesktop extends Desktop {
+
+	public Books books;
+	public RussianBooks russianBooks;
+	public ForeignBooks foreignBooks;
+
+	public Persons persons;
+
+}

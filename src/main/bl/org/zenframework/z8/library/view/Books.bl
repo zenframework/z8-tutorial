@@ -1,0 +1,43 @@
+import org.zenframework.z8.base.form.Fieldset;
+import org.zenframework.z8.base.form.Listbox;
+import org.zenframework.z8.library.model.Book;
+import org.zenframework.z8.library.model.Journal;
+
+[entry]
+[displayName "Книги"]
+public class Books extends Book {
+
+	[displayName "Наименование"] name;
+	[displayName "Описание"] annotation;
+	[displayName "Библиотека"] library.name;
+
+	annotation.colSpan = 4;
+
+	public Journal journal;
+	journal.date.editable = true;
+	journal.returned.editable = true;
+
+	[displayName "Посетитель (телефон)"] journal.person.namePhone;
+
+	[displayName "История"]
+	public Listbox journalList;
+	journalList.query = journal;
+	journalList.link = journal.bookId;
+	journalList.columns = { journal.person.namePhone, journal.date, journal.returned };
+	journalList.colSpan = 3;
+	journalList.flex = 3;
+
+	[displayName "Книга"]
+	public Fieldset bookFields;
+	bookFields.controls = { name, type.name, author.name, library.name, description };
+	bookFields.colCount = 1;
+	bookFields.flex = 1;
+	//bookFields.height = 2;
+
+	colCount = 1;
+
+	names = { name };
+	controls = { bookFields, journalList };
+	columns = { name, type.name, author.name, library.name };
+
+}

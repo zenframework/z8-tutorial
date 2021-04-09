@@ -1,11 +1,9 @@
-import org.zenframework.z8.base.form.Listbox;
 import org.zenframework.z8.base.table.Table;
 import org.zenframework.z8.base.table.value.Link;
+import org.zenframework.z8.base.table.value.StringField;
 
-[entry]
 [generatable]
 [name "Book"]
-[displayName "Книги"]
 public class Book extends Table {
 
 	public BookType type;
@@ -17,25 +15,8 @@ public class Book extends Table {
 	public Library library;
 	[name "Library"] public Link libraryId = library;
 
-	[displayName "Наименование"] name;
-	[displayName "Библиотека"] library.name;
-
-	public Journal journal;
-	journal.date.editable = true;
-	journal.returned.editable = true;
-
-	[displayName "Посетитель (телефон)"] journal.person.namePhone;
-
-	[displayName "История"]
-	public Listbox journalList;
-	journalList.query = journal;
-	journalList.link = journal.bookId;
-	journalList.columns = { journal.person.namePhone, journal.date, journal.returned };
-	journalList.colSpan = 4;
-	journalList.flex = 1;
-
-	names = { name };
-	controls = { name, type.name, author.name, library.name, journalList };
-	columns = { name, type.name, author.name, library.name };
+	[name "Annotation"]
+	public StringField annotation;
+	annotation.length = 1000;
 
 }

@@ -1,10 +1,9 @@
 import org.zenframework.z8.library.model.Author;
-import org.zenframework.z8.library.model.Book;
 import org.zenframework.z8.library.model.BookType;
 
 [entry]
 [displayName "Русская литература"]
-public class RussianBooks extends Book {
+public class RussianBooks extends Books {
 
 	typeId = class {
 		virtual protected guid getDefault() {
