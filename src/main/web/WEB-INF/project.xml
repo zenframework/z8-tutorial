@@ -36,7 +36,7 @@
 	<entry key="trace.sql">false</entry>                                <!-- default=false -->
 	<entry key="trace.sql.connections">false</entry>                    <!-- default=false -->
 
-	<entry key="scheduler.enabled">false</entry>                        <!-- default=true -->
+	<entry key="scheduler.enabled">true</entry>                        <!-- default=true -->
 
 	<entry key="transport.job.cron">* * * * *</entry>                         <!-- default="*/5 * * * *", <empty> to disable -->
 	<entry key="maintenance.job.cron"></entry>                       <!-- default="0 * * * *", <empty> to disable -->
