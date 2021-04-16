@@ -1,0 +1,28 @@
+import org.zenframework.z8.base.Procedure;
+import org.zenframework.z8.base.application.Application;
+import org.zenframework.z8.base.form.action.Parameter;
+import org.zenframework.z8.base.table.value.Field;
+import org.zenframework.z8.library.model.Journal;
+
+/*
+ * Процедура - возможность асинхронного исполнения кода - по расписанию, либо по запросу пользователя
+ * Атрибут [job] указывает на то, что процедура должна быть добавлена в список заданий (Администрирование / Задания).
+ * Если в качестве значения указано выражение CRON, задание автоматически добавляется в планировщик после
+ * генерации схемы данных.
+ */
+
+[job "* * * * *"]
+[displayName "Проверить брони"]
+public class CheckBookingJob extends Procedure {
+
+	virtual protected void execute(Parameter[] parameters) {
+		Journal journal;
+		journal.read(Field[] { journal.book.name }, journal.status == Journal.Booked
+				&& journal.bookedAt < date.now().addMinute(-1));
+		while (journal.next()) {
+			journal.destroy(journal.recordId());
+			Application.logInfo("Бронь на книгу " + journal.book.name.get() + " аннулирована");
+		}
+	}
+
+}

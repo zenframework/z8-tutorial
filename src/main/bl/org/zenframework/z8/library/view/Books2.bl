@@ -18,8 +18,8 @@ public class Books2 extends Book {
 	description.flex = 1;
 
 	public Journal journal;
-	journal.date.editable = true;
-	journal.returned.editable = true;
+	journal.lendedAt.editable = true;
+	journal.returnedAt.editable = true;
 
 	[displayName "Посетитель (телефон)"] journal.person.namePhone;
 
@@ -27,7 +27,7 @@ public class Books2 extends Book {
 	public Listbox journalList;
 	journalList.query = journal;
 	journalList.link = journal.bookId;
-	journalList.columns = { journal.person.namePhone, journal.date, journal.returned };
+	journalList.columns = { journal.person.namePhone, journal.lendedAt, journal.returnedAt };
 	journalList.colSpan = 4;
 	journalList.flex = 3;
 

@@ -6,8 +6,8 @@ import org.zenframework.z8.library.model.Person;
 public class Persons extends Person {
 
 	public Journal journal;
-	journal.date.editable = true;
-	journal.returned.editable = true;
+	journal.lendedAt.editable = true;
+	journal.returnedAt.editable = true;
 
 	public Persons persons;
 	journal.book.name.source = persons;
@@ -16,7 +16,7 @@ public class Persons extends Person {
 	public Listbox journalList;
 	journalList.query = journal;
 	journalList.link = journal.personId;
-	journalList.columns = { journal.book.name, journal.date, journal.returned };
+	journalList.columns = { journal.book.fullName, journal.lendedAt, journal.returnedAt, journal.alertAt };
 	journalList.colSpan = 4;
 	journalList.flex = 1;
 
